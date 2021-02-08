@@ -17,7 +17,7 @@
 | ---------------------- | ---------- | ------------------------------ |
 | name                   | string     | null: false                    |
 | info                   | text       | null: false                    |
-| date                   | date       | null: false                    |
+| event_date             | date       | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association
