@@ -26,3 +26,37 @@
   font-size: 18px;
   text-align: center;
 }
+
+.detail-task2 {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 18px;
+  text-align: center;
+  color: blue;
+}
+
+.detail-task-value2 {
+  width: 20%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 18px;
+  text-align: center;
+}
+
+.detail-task3 {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 18px;
+  text-align: center;
+  color: blue;
+}
+
+.detail-task-value3 {
+  width: 20%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 18px;
+  text-align: center;
+}
