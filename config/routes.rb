@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :appoint, only: [:index]
   end
+  resources :users, only: [:show]
 end
