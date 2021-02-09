@@ -4,10 +4,10 @@
 <% if user_signed_in? %>
   <%#= link_to 'カテゴリー', "#", class: "category-list" %>
   <% if current_user.id == 1 %>
-   <%#= link_to 'コメントを見る', comments_path, method: :get, class: "category-list" %>
+   <%= link_to '予定を決める', new_task_path, method: :get, class: "category-list" %>
    <%#= link_to 'サービスをする', new_service_path, method: :get, class: "category-list" %>
   <% else %>
-  <%#= link_to 'コメントを書く', new_comment_path, method: :get, class: "category-list" %>
+    <%#= link_to 'コメントを書く', new_comment_path, method: :get, class: "category-list" %>
   <% end %>
 <% end %>
 </div>
@@ -15,7 +15,9 @@
   <div class="greeting">
      <%= current_user.name %>
   </div>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %>
+  <div>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %>
+  </div>
 <% else %>
  <ul class='lists-right'>
   <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
