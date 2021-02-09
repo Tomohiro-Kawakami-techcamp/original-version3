@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_012527) do
+ActiveRecord::Schema.define(version: 2021_02_09_012314) do
+
+  create_table "appoints", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "task_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_appoints_on_task_id"
+    t.index ["user_id"], name: "index_appoints_on_user_id"
+  end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,5 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_012527) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appoints", "tasks"
+  add_foreign_key "appoints", "users"
   add_foreign_key "tasks", "users"
 end

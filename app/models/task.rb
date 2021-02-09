@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :appoints
 
   with_options presence: true do
   validates :name

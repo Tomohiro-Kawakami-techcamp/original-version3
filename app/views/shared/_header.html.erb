@@ -2,12 +2,10 @@
 <div class='nav'>
 <div class='lists-left'>
 <% if user_signed_in? %>
-  <%#= link_to 'カテゴリー', "#", class: "category-list" %>
   <% if current_user.id == 1 %>
-   <%= link_to '予定を決める', new_task_path, method: :get, class: "category-list" %>
-   <%#= link_to 'サービスをする', new_service_path, method: :get, class: "category-list" %>
+   <%= link_to '予定をリリースする', new_task_path, method: :get, class: "category-list" %>
   <% else %>
-    <%#= link_to 'コメントを書く', new_comment_path, method: :get, class: "category-list" %>
+    <%#= link_to '予定を決める', new_comment_path, method: :get, class: "category-list" %>
   <% end %>
 <% end %>
 </div>

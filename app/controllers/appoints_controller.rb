@@ -1,0 +1,2 @@
+class AppointsController < ApplicationController
+end
