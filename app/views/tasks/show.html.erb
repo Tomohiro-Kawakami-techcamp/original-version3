@@ -1,14 +1,38 @@
-<h1 class = "task-title">内容詳細</h1>
+<%= render "shared/header" %>
 
-<%= form_with model: @task, local: true do |f| %>
+<div class="item-show">
+  <div class="item-box">
+    <h1 class="name">
+      <%= @task.name %>
+    </h1>
 
-<h2 class="name">
-  <%= @task.name %>
-</h2>
-<div class="task-explain-box">
-  <span><%= @task.info %></span>
+    <% if user_signed_in? %>
+      <% if current_user.id == @task.user_id %>
+      <%= link_to '変更', edit_task_path(@task.id), method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '取消', task_path(@task.id), method: :delete, class:'item-destroy' %>
+      <% else %>
+          <%= link_to '予約する', task_appoint_index_path(@task.id) ,class:"item-red-btn"%>
+      <% end %>
+    <% end %>
+
+    <div class="item-explain-box">
+      <span><%= @task.info %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">考案者</th>
+          <td class="detail-value"><%= @task.user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">実施日時</th>
+          <td class="detail-value"><%= @task.event_date %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class = "foot">
+    <%= link_to '戻る', tasks_path, method: :get %>
+  </div>
 </div>
-<div>
-  <%= @task.event_date %>
-</div>
-<% end %>

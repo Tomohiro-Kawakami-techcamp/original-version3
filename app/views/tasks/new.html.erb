@@ -1,9 +1,11 @@
+<div class = "tasks-general-contents">
+<div class = "task-general">
 <h1 class = "task-new-title">予定入力</h1>
 
 <%= form_with model: @task, local: true do |f| %>
-<div>
-  <div class='birth'>
-       <label class="form-text">日付</label><br>
+   <div class='birth'>
+       <label class="birth-text">日付</label><br>
+       <div class = "birth-wrap">
        <%= raw sprintf(
                   f.date_select(
                     :event_date,
@@ -14,19 +16,21 @@
                     start_year: 2021,
                     end_year: (Time.now.year + 1),
                     date_separator: '%s'),
-                  " 年 ", " 月 ") + " 日 " %>
+                  "<br> 年 ", "<br> 月 ") + "<br> 日 " %>
+      </div>
     </div>
     <div class="new-contents">
     <div class="weight-bold-text">内容</div>
     </div>
-     <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+     <%= f.text_area :name, class:"tasks-text1", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
    <div class="contents-explain">
    <div class="weight-bold-text">詳細内容</div>
    </div>
-     <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-</div>
-  <div class="sell-btn-contents">
-      <%= f.submit "決定する" ,class:"sell-btn" %>
+     <%= f.text_area :info, class:"tasks-text2", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+  <div class="task-btn-contents">
+      <%= f.submit "決定する" ,class:"task-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
+  </div>
+</div>
+</div>
 <% end %>
