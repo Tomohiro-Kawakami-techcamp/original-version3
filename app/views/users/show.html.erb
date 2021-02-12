@@ -20,17 +20,17 @@
     <%= link_to "利用ユーザー一覧",admins_path, model: :get  %>
   </div>
   <div class = "order">
-    <%= link_to "参加者一覧", appoints_path, method: :get %>
+    <%#= link_to "参加者一覧", appoints_path, method: :get %>
   </div>
 <% else%>
 <div class = "buy">
- <%= link_to "予約履歴", appoints_path, method: :get %>
+ <%= link_to "予約履歴", allappoints_path, method: :get %>
 </div>
  <div class = "service1">
    <%#= link_to 'ファンサービスに応募', services_path, method: :get %>
  </div>
   <div class = "service1">
-    <%#= link_to "応募したサービス一覧", allappoints_path, method: :get %>
+    <%#= link_to "予約イベント", allappoints_path, method: :get %>
   </div>
 <% end %>
 <div class = "item">
