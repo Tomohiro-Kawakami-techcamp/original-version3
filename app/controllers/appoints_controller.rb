@@ -4,11 +4,17 @@ class AppointsController < ApplicationController
   end
 
   def create
-   @appoint = Appoint.create(user_id: current_user.id, task_id: params[:task_id])
-   if @appoint.save
-    redirect_to  root_path
+   @appoints = Appoint.all
+   if @appoints.where(user_id: current_user.id, task_id: params[:task_id]).present?
+    flash[:notice] = "予約済みです。"
+    redirect_to task_path(params[:task_id])
    else
-    render :index
+     @appoint = Appoint.create(user_id: current_user.id, task_id: params[:task_id])
+       if @appoint.save
+         redirect_to  root_path
+       else
+         render :index
+       end
    end
   end
 end

@@ -1,4 +1,9 @@
 <div class="item-show">
+<% if flash[:notice] %>
+  <div class="alert-danger">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
   <div class="item-box">
     <h1 class="name">
       <%= @task.name %>
